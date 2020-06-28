@@ -1,0 +1,156 @@
+----------------------Задание 1------------------------
+import time
+class TrafficLight:
+    color = 'green'
+    def color_green(self):
+        color = 'green'
+        print('Зеленый')
+        return color
+
+    def color_yellow(self):
+        color = 'yellow'
+        print('Желтый')
+        return color
+
+    def color_rad(self):
+        color = 'red'
+        print('Красный')
+        return color
+
+TrafficLight_1 = TrafficLight()
+while True:
+    TrafficLight_1.color_green()
+    time.sleep(7)
+    TrafficLight_1.color_yellow()
+    time.sleep(2)
+    TrafficLight_1.color_rad()
+    time.sleep(7)
+    TrafficLight_1.color_yellow()
+    time.sleep(2)
+
+
+----------------------Задание 2------------------------
+class Road:
+    __v = 25
+    def ves(self, _a, _l, _h):
+        print(f'Вес покрытия: {int(_a) * int(_l) * self.__v * int(_h)} тон')
+
+Road_1 = Road()
+z = input(' Введите параметры: ширина(м), длина(м), толщина(см):  ').split(' ')
+[_a, _l, _h] = z
+Road_1.ves(_a, _l, _h)
+
+----------------------Задание 3------------------------
+
+class Worker:
+    _income = {'wage':20000, 'bonus':5000}
+    def __init__(self, name, surname, position):
+        self.name = name
+        self.surname = surname
+        self.position = position
+
+    def data(self):
+        print(f'{self.position} {self.surname} {self.name} заработная плата {int(self._income["wage"]) + int(self._income["bonus"])}')
+
+Worker_1 = Worker('Иван', 'Иванов', 'Охранник')
+Worker_1.data()
+
+Worker_2 = Worker('Сергей', 'Ефимов', 'Администратор')
+Worker_2.data()
+
+Worker_3 = Worker('Михаил', 'Мишустин', 'Кладовщик')
+Worker_3.data()
+
+
+----------------------Задание 4------------------------
+
+
+class car():
+    def __init__(self, name, color, speed, is_polis):
+        self.name = name
+        self.color = color
+        self.speed = speed
+        self.is_polis = is_polis
+
+    def go(self):
+        print('go')
+
+    def stop(self):
+        print('stop')
+
+    def turn(self, turn_to):
+        print(f'Поворот на {turn_to} градусов')
+
+    def show_speed(self, maxspeed):
+        if self.speed > maxspeed:
+            print('Превышение скорости!')
+
+TownCar = car('Hyundai', 'blu', 70, False)
+print(TownCar.name, TownCar.color, TownCar.speed)
+TownCar.go()
+TownCar.show_speed(60)
+TownCar.stop()
+
+SportCar = car('Porsche', 'rad', 250, False)
+print(SportCar.name, SportCar.color, SportCar.speed)
+SportCar.go()
+SportCar.turn(90)
+
+WorkCar = car('nissan', 'white', 35, False)
+print(WorkCar.name, WorkCar.color, WorkCar.speed)
+WorkCar.go()
+WorkCar.show_speed(40)
+WorkCar.turn(-45)
+
+PoliceCar = car('nissan', 'white', 35, True)
+print(PoliceCar.name, PoliceCar.color, PoliceCar.speed)
+PoliceCar.go()
+PoliceCar.turn(45)
+PoliceCar.turn(-90)
+PoliceCar.stop()
+
+
+
+----------------------Задание 5------------------------
+
+
+
+class Stationary:
+    def __init__(self, title):
+        self.title = title
+
+    def draw(self):
+        return f'Отрисовка {self.title}'
+
+
+class Pen(Stationary):
+    def __init__(self, title):
+        super().__init__(title)
+
+    def draw(self):
+        return f' {self.title}. Запуск отрисовки'
+
+
+class Pencil(Stationary):
+    def __init__(self, title):
+        super().__init__(title)
+
+    def draw(self):
+        return f'{self.title}. Запуск отрисовки'
+
+
+class Handle(Stationary):
+    def __init__(self, title):
+        super().__init__(title)
+
+    def draw(self):
+        return f'Вы взяли {self.title}. Запуск отрисовки маркером'
+
+
+pen = Pen('Ручка')
+pencil = Pencil('Карандаш')
+handle = Handle('Маркер')
+print(pen.draw())
+print(pencil.draw())
+print(handle.draw())
+
